@@ -22,10 +22,10 @@ export function Hero() {
             key={i}
             className="absolute rounded-full bg-white/10 backdrop-blur-md"
             style={{
-              width: Math.random() * 100 + 50 + 'px',
-              height: Math.random() * 100 + 50 + 'px',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
+              width: `${Math.random() * 80 + 50}px`,
+              height: `${Math.random() * 80 + 50}px`,
+              left: `${Math.random() * 90}%`,
+              top: `${Math.random() * 90}%`,
               animation: `float ${Math.random() * 10 + 5}s infinite ease-in-out`,
               animationDelay: `-${Math.random() * 5}s`,
             }}
@@ -34,31 +34,31 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 h-screen flex flex-col items-center justify-center text-white">
-        <div className="flex items-center gap-2 mb-8">
-          <Sparkles className="w-6 h-6 text-primary animate-pulse" />
-          <span className="text-lg font-medium px-4 py-1 rounded-full bg-white/10 backdrop-blur-md">
+      <div className="relative z-10 container mx-auto px-6 h-screen flex flex-col items-center justify-center text-white text-center">
+        <div className="flex items-center gap-2 mb-6">
+          <Sparkles className="w-5 h-5 text-primary animate-pulse" />
+          <span className="text-sm sm:text-lg font-medium px-3 py-1 rounded-full bg-white/10 backdrop-blur-md">
             Gen Z Workforce Platform
           </span>
-          <Sparkles className="w-6 h-6 text-secondary animate-pulse" />
+          <Sparkles className="w-5 h-5 text-secondary animate-pulse" />
         </div>
 
-        <h1 className="text-6xl md:text-8xl font-bold text-center mb-6 leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4">
           Get it done{' '}
           <span className="relative">
-            <span className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary blur-lg opacity-50" />
+            <span className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary blur-lg opacity-40" />
             <span className="relative">{rotatingWord}</span>
           </span>
         </h1>
 
-        <p className="text-xl md:text-2xl text-center mb-12 max-w-2xl mx-auto leading-relaxed">
-          The future of work is here. Join the largest Gen Z workforce platform 
+        <p className="text-sm sm:text-lg md:text-xl text-white/90 leading-relaxed max-w-lg mx-auto mb-8">
+          The future of work is here. Join the largest Gen Z workforce platform
           powered by cutting-edge technology.
         </p>
 
         <Search />
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
           <Button variant="primary">
             <Zap className="w-5 h-5 mr-2" />
             Find a Service
@@ -66,23 +66,23 @@ export function Hero() {
           <Button variant="secondary">Get Started</Button>
         </div>
 
-        {/* Updated stats section with better mobile responsiveness */}
-        <div className="mt-16 w-full max-w-lg mx-auto">
-          <div className="grid grid-cols-3 gap-4 px-6 py-4 rounded-2xl bg-white/5 backdrop-blur-lg">
+        {/* Updated stats section for mobile responsiveness */}
+        <div className="mt-12 w-full max-w-md mx-auto">
+          <div className="grid grid-cols-3 gap-4 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md shadow-lg">
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+              <div className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
                 1M+
               </div>
               <div className="text-xs sm:text-sm text-white/70">Active Users</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+              <div className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
                 50K+
               </div>
               <div className="text-xs sm:text-sm text-white/70">Services</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+              <div className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
                 100%
               </div>
               <div className="text-xs sm:text-sm text-white/70">Satisfaction</div>
