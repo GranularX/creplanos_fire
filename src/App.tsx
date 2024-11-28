@@ -5,6 +5,7 @@ import { Features } from './components/Features';
 import { Footer } from './components/Footer';
 import { SignIn } from './components/auth/SignIn';
 import { SignUp } from './components/auth/SignUp';
+import { API } from "./components/api/API";
 import { Layout } from './components/Layout';
 import { ServiceProviderProfile } from './components/profile/ServiceProviderProfile';
 import { UserProfile } from './components/profile/UserProfile';
@@ -25,6 +26,7 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="provider-profile" element={<ServiceProviderProfile />} />
           <Route path="user-profile" element={<UserProfile />} />
+          <Route path='api' element={<API/>}/>
           <Route path="wallet" element={<WalletPage />} />
         </Route>
       </Routes>
