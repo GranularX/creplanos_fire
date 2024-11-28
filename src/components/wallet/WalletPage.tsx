@@ -4,8 +4,11 @@ import { Button } from '../Button';
 
 export function WalletPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#8E2DE2] via-[#4A00E0] to-[#F77062] pt-20">
-      <div className="container mx-auto px-4 py-8">
+    <div className="relative min-h-screen bg-gradient-to-r from-[#8E2DE2] via-[#4A00E0] to-[#F77062] pt-20">
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/50"></div>
+
+      <div className="relative container mx-auto px-4 py-8">
         {/* Balance Card */}
         <div className="glass-card p-8 mb-8 bg-white/10 backdrop-blur-md rounded-lg shadow-lg">
           <div className="flex items-center justify-between mb-6">
@@ -15,7 +18,7 @@ export function WalletPage() {
             </div>
             <Wallet className="w-12 h-12 text-blue-400" />
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="p-6 rounded-xl bg-gradient-to-r from-blue-500 to-green-500 shadow-md">
               <div className="flex justify-between items-start mb-4">

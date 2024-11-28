@@ -2,8 +2,11 @@ import React from 'react';
 
 export function API() {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#8E2DE2] via-[#4A00E0] to-[#F77062] pt-20">
-      <div className="container mx-auto px-4 py-8">
+    <div className="relative min-h-screen bg-gradient-to-r from-[#8E2DE2] via-[#4A00E0] to-[#F77062] pt-20">
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/50"></div>
+
+      <div className="relative container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold text-white text-center mb-8">API Documentation</h1>
         <p className="text-lg text-white text-center mb-16">
           Access our services programmatically with our RESTful APIs. Below is a guide to get you started.

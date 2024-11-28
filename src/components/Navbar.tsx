@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Zap, Menu, X, User, Wallet, Code } from 'lucide-react'; // Imported Code for API
+import { Zap, Menu, X, User, Wallet, Code ,Book} from 'lucide-react'; // Imported Code for API
 
 export function Navbar() {
   const location = useLocation();
@@ -35,7 +35,7 @@ export function Navbar() {
                 <NavLink to="/user-profile" icon={User}>User</NavLink>
                 <NavLink to="/wallet" icon={Wallet}>Wallet</NavLink>
                 <NavLink to="/api" icon={Code}>API</NavLink> {/* Updated Icon for API */}
-                  <NavLink to="/api" icon={Code}>Learn</NavLink> {/* Updated Icon for API */}
+                  <NavLink to="/learn" icon={Book}>Learn</NavLink> {/* Updated Icon for API */}
                 <div className="ml-4 flex items-center gap-3">
                   <Link
                     to="/signin"
@@ -71,7 +71,7 @@ export function Navbar() {
             <NavLink to="/user-profile" icon={User}>User</NavLink>
             <NavLink to="/wallet" icon={Wallet}>Wallet</NavLink>
             <NavLink to="/api" icon={Code}>API</NavLink> {/* Updated Icon for API */}
-              <NavLink to="/api" icon={Code}>Learn</NavLink> {/* Updated Icon for API */}
+              <NavLink to="/learn" icon={Book}>Learn</NavLink> {/* Updated Icon for API */}
             <div className="pt-2 flex flex-col gap-2">
               <Link
                 to="/signin"

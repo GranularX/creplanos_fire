@@ -11,10 +11,10 @@ export function Hero() {
     <div className="relative min-h-screen overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 bg-[linear-gradient(45deg,#00d4ff,#e500ff,#00d4ff)] animate-gradient-x" />
-      
-      {/* Glassmorphism overlay */}
-      <div className="absolute inset-0 backdrop-blur-[100px]" />
-      
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/50"></div>
+
       {/* Floating elements */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(20)].map((_, i) => (
@@ -43,7 +43,7 @@ export function Hero() {
           <Sparkles className="w-5 h-5 text-secondary animate-pulse" />
         </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4 relative">
           Get it done{' '}
           <span className="relative">
             <span className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary blur-lg opacity-40" />
@@ -66,7 +66,7 @@ export function Hero() {
           <Button variant="secondary">Get Started</Button>
         </div>
 
-        {/* Updated stats section for mobile responsiveness */}
+        {/* Stats Section */}
         <div className="mt-12 w-full max-w-md mx-auto">
           <div className="grid grid-cols-3 gap-4 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md shadow-lg">
             <div className="text-center">
