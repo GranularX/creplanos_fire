@@ -11,6 +11,7 @@ import { Layout } from './components/Layout';
 import { ServiceProviderProfile } from './components/profile/ServiceProviderProfile';
 import { UserProfile } from './components/profile/UserProfile';
 import { WalletPage } from './components/wallet/WalletPage';
+import ChatInterface from './components/ChatInterface';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <>
               <Hero />
               <Features />
+              {/* <ChatInterface /> Added ChatInterface component */}
             </>
           } />
           <Route path="signin" element={<SignIn />} />
@@ -30,6 +32,7 @@ function App() {
           <Route path='api' element={<API/>}/>
           <Route path='learn' element={<Learn/>}/>
           <Route path="wallet" element={<WalletPage />} />
+          <Route path='chat' element={<ChatInterface/>}/>
         </Route>
       </Routes>
       <Footer />

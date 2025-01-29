@@ -41,7 +41,7 @@ export function WalletPage() {
                 </div>
                 <p className="text-gray-300">This Month</p>
               </div>
-              <h4 className="text-2xl font-bold text-white mb-1">$4,589.00</h4>
+              <h4 className="text-2xl font-bold text-white mb-1">crb4,589.00</h4>
               <p className="text-green-400 text-sm">+12.5% from last month</p>
             </div>
 
@@ -52,7 +52,7 @@ export function WalletPage() {
                 </div>
                 <p className="text-gray-300">Pending</p>
               </div>
-              <h4 className="text-2xl font-bold text-white mb-1">$958.00</h4>
+              <h4 className="text-2xl font-bold text-white mb-1">crb958.00</h4>
               <p className="text-red-400 text-sm">3 pending payments</p>
             </div>
           </div>

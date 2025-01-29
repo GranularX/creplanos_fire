@@ -3,8 +3,10 @@ import { useRotatingText } from '../hooks/useRotatingText';
 import { Search } from './Search';
 import { Button } from './Button';
 import { Sparkles, Zap } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export function Hero() {
+  const navigate = useNavigate();
   const rotatingWord = useRotatingText(['timely', 'qualitatively', 'quickly', 'affordably']);
 
   return (
@@ -56,12 +58,12 @@ export function Hero() {
           powered by cutting-edge technology.
         </p>
 
-        <Search />
+        {/* <Search /> */}
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
-          <Button variant="primary">
+          <Button variant="primary" onClick={() => navigate('/chat')}>
             <Zap className="w-5 h-5 mr-2" />
-            Find a Service
+            Use a Service
           </Button>
           <Button variant="secondary">Get Started</Button>
         </div>
