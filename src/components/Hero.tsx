@@ -61,7 +61,7 @@ export function Hero() {
         {/* <Search /> */}
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
-          <Button variant="primary" onClick={() => navigate('/chat')}>
+          <Button variant="primary" onClick={() => navigate('/book')}>
             <Zap className="w-5 h-5 mr-2" />
             Use a Service
           </Button>

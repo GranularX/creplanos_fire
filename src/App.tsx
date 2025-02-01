@@ -12,6 +12,7 @@ import { ServiceProviderProfile } from './components/profile/ServiceProviderProf
 import { UserProfile } from './components/profile/UserProfile';
 import { WalletPage } from './components/wallet/WalletPage';
 import ChatInterface from './components/ChatInterface';
+import ServiceBookingForm from './components/ServiceBookingForm';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path='learn' element={<Learn/>}/>
           <Route path="wallet" element={<WalletPage />} />
           <Route path='chat' element={<ChatInterface/>}/>
+          <Route path='book' element={<ServiceBookingForm/>}/>
         </Route>
       </Routes>
       <Footer />
