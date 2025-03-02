@@ -1,29 +1,31 @@
-import { useState, useEffect, useRef } from 'react';
-import { Mic } from 'lucide-react';
+import React, { useState, useEffect, useRef } from "react";
+import { Mic } from "lucide-react";
 
 const services = [
-  { name: 'creEdit', label: 'creEdit - Video Editing' },
-  { name: 'creUI', label: 'creUI - UI Design' },
-  { name: 'creContent', label: 'creContent - Content Strategy' },
-  { name: 'creAudio', label: 'creAudio - Audio Production' },
-  { name: 'cre3D', label: 'cre3D - 3D Modeling' },
-  { name: 'creDev', label: 'creDev - Software Development' },
-  { name: 'creLaundry', label: 'creLaundry - Laundry Service' },
-  { name: 'creRide', label: 'creRide - Ride Services' },
-  { name: 'creDelivery', label: 'creDelivery - Package Delivery' },
-  { name: 'creCatering', label: 'creCatering - Event Catering' },
-  { name: 'creArt', label: 'creArt - Art & Design' },
-  { name: 'creTailoring', label: 'creTailoring - Tailoring & Fashion' },
-  { name: 'creRepairs', label: 'creRepairs - Repairs & Maintenance' },
-  { name: 'creBeauty', label: 'creBeauty - Beauty Services' },
-  { name: 'creEvents', label: 'creEvents - Event Planning' },
-  { name: 'creGardens', label: 'creGardens - Gardening & Landscaping' },
-  { name: 'creHealth', label: 'creHealth - Health & Wellness' },
-  { name: 'creTutors', label: 'creTutors - Tutoring Services' },
+  { name: "creEdit", label: "creEdit - Video Editing" },
+  { name: "creUI", label: "creUI - UI Design" },
+  {name: "creGraphics", label:"creGraphics -  Graphics Design"},
+  { name: "creContent", label: "creContent - Content Strategy" },
+  { name: "creAudio", label: "creAudio - Audio Production" },
+  { name: "cre3D", label: "cre3D - 3D Modeling" },
+  { name: "creDev", label: "creDev - Software Development" },
+  { name: "creLaundry", label: "creLaundry - Laundry Service" },
+  { name: "creRide", label: "creRide - Ride Services" },
+  { name: "creDelivery", label: "creDelivery - Package Delivery" },
+  { name: "creCatering", label: "creCatering - Event Catering" },
+  { name: "creArt", label: "creArt - Art & Design" },
+  { name: "creTailoring", label: "creTailoring - Tailoring & Fashion" },
+  { name: "creRepairs", label: "creRepairs - Repairs & Maintenance" },
+  { name: "creBeauty", label: "creBeauty - Beauty Services" },
+  { name: "creEvents", label: "creEvents - Event Planning" },
+  { name: "creGardens", label: "creGardens - Gardening & Landscaping" },
+  { name: "creHealth", label: "creHealth - Health & Wellness" },
+  { name: "creTutors", label: "creTutors - Tutoring Services" },
 ];
 
 const ServiceBookingForm = () => {
-  const [service, setService] = useState('');
+  const [service, setService] = useState("");
+  const [description, setDescription] = useState("");
   const [recording, setRecording] = useState(false);
   const [audioURL, setAudioURL] = useState(null);
   const [audioBlob, setAudioBlob] = useState(null);
@@ -32,42 +34,60 @@ const ServiceBookingForm = () => {
   const [showModal, setShowModal] = useState(false);
 
   const mediaRecorderRef = useRef(null);
-  const recordTimeoutRef = useRef(null);
+  const audioChunksRef = useRef([]);
 
   useEffect(() => {
-    setIsFormValid(service !== '' && audioURL !== null);
-  }, [service, audioURL]);
+    // Text must be at least 10 words OR audio must be recorded, but not both.
+    const textWordCount = description.trim().split(/\s+/).length;
+    const isTextValid = description.trim() !== "" && textWordCount >= 10;
+    const isAudioValid = audioBlob !== null;
+
+    setIsFormValid(service !== "" && ((isTextValid && !isAudioValid) || (!isTextValid && isAudioValid)));
+  }, [service, description, audioBlob]);
+
+  const convertAudioToBase64 = (blob) => {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(blob);
+      reader.onloadend = () => {
+        const base64Audio = reader.result.split(",")[1]; // Get only Base64 data
+        resolve(base64Audio);
+      };
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setShowModal(true);
 
-    if (!service || !audioBlob) return;
+    if (!service || (!description.trim() && !audioBlob)) {
+      console.error("Invalid form submission");
+      return;
+    }
 
-    // Convert Blob to Base64
-    const reader = new FileReader();
-    reader.readAsDataURL(audioBlob);
-    reader.onloadend = async () => {
-      const base64Audio = reader.result.split(',')[1];
+    let base64Audio = null;
+    if (audioBlob) {
+      base64Audio = await convertAudioToBase64(audioBlob);
+    }
 
-      const payload = {
-        service_name: service,
-        audio_data: base64Audio,
-      };
-
-      try {
-        const response = await fetch('/api/service-request', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-
-        const data = await response.json();
-        console.log('Service Request Response:', data);
-      } catch (error) {
-        console.error('Error submitting service request:', error);
-      }
+    const payload = {
+      service_name: service,
+      description: description.trim(),
+      audio_data: base64Audio || null,
     };
+
+    try {
+      const response = await fetch("/api/service-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+      console.log("Service Request Response:", data);
+    } catch (error) {
+      console.error("Error submitting service request:", error);
+    }
   };
 
   const handleToggleRecording = async () => {
@@ -85,28 +105,26 @@ const ServiceBookingForm = () => {
       mediaRecorderRef.current = recorder;
       setRecording(true);
       setRecordingSaved(false);
+      setDescription(""); // Clear text input when recording starts
 
-      const audioChunks = [];
+      audioChunksRef.current = []; // Reset previous audio chunks
+
       recorder.ondataavailable = (event) => {
-        audioChunks.push(event.data);
+        if (event.data.size > 0) {
+          audioChunksRef.current.push(event.data);
+        }
       };
 
       recorder.onstop = () => {
-        const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
-        setAudioBlob(audioBlob);
-        const audioUrl = URL.createObjectURL(audioBlob);
-        setAudioURL(audioUrl);
+        const blob = new Blob(audioChunksRef.current, { type: "audio/wav" });
+        setAudioBlob(blob);
+        setAudioURL(URL.createObjectURL(blob));
         setRecordingSaved(true);
       };
 
       recorder.start();
-
-      // Automatically stop recording after 2 minutes
-      recordTimeoutRef.current = setTimeout(() => {
-        handleStopRecording();
-      }, 120000);
     } catch (error) {
-      console.error('Error accessing microphone:', error);
+      console.error("Error accessing microphone:", error);
     }
   };
 
@@ -114,7 +132,6 @@ const ServiceBookingForm = () => {
     if (mediaRecorderRef.current) {
       mediaRecorderRef.current.stop();
       setRecording(false);
-      clearTimeout(recordTimeoutRef.current);
     }
   };
 
@@ -135,59 +152,51 @@ const ServiceBookingForm = () => {
               <option key={s.name} value={s.name}>{s.label}</option>
             ))}
           </select>
-          
+
+          {/* Description Input - Enabled only when service is selected */}
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="w-full p-3 border rounded-lg"
+            placeholder="Describe what you need... (Min. 10 words)"
+            disabled={!service || audioBlob !== null} // Disable if audio exists
+          />
+
           {/* Voice Input with Sound Recording Icon */}
           <div className="relative flex flex-col items-center">
             <button
               type="button"
-              className={`p-3 rounded-full text-white bg-gray-600 hover:bg-gray-700 ${recording ? 'bg-red-500 animate-pulse' : ''}`}
+              className={`p-3 rounded-full text-white bg-gray-600 hover:bg-gray-700 ${
+                recording ? "bg-red-500 animate-pulse" : ""
+              }`}
               onClick={handleToggleRecording}
+              disabled={!service || description.trim().length > 0} // Disable if text exists
             >
               <Mic size={24} />
             </button>
-            {recording && (
-              <p className="text-red-500 text-sm font-bold animate-pulse mt-2">Recording...</p>
-            )}
-            {recordingSaved && (
-              <p className="text-green-500 text-sm font-bold mt-2">Recording Saved!</p>
-            )}
+            {recording && <p className="text-red-500 text-sm font-bold animate-pulse mt-2">Recording...</p>}
+            {recordingSaved && <p className="text-green-500 text-sm font-bold mt-2">Recording Saved!</p>}
           </div>
-          
+
           {audioURL && (
             <audio controls className="w-full mt-2">
               <source src={audioURL} type="audio/wav" />
               Your browser does not support the audio element.
             </audio>
           )}
-          
+
           {/* Submit Button */}
           <button
             type="submit"
-            className={`w-full p-3 text-white font-bold rounded-lg ${isFormValid ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-400 cursor-not-allowed'}`}
+            className={`w-full p-3 text-white font-bold rounded-lg ${
+              isFormValid ? "bg-blue-500 hover:bg-blue-600" : "bg-gray-400 cursor-not-allowed"
+            }`}
             disabled={!isFormValid}
           >
             Submit Request
           </button>
         </form>
       </div>
-      
-      {/* Modal */}
-      {showModal && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <center>
-            <h3 className="text-lg font-bold mb-2">Request Submitted</h3>
-            <p>Your service request has been successfully submitted. We are currently processing it.</p>
-            <button
-              className="mt-4 px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
-              onClick={() => setShowModal(false)}
-            >
-              Close
-            </button>
-            </center>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

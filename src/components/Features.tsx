@@ -163,26 +163,34 @@ const features = [
 
 
 export function Features() {
-  return (
-    <div className="py-24 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-16">Our Services</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature) => (
-            <div
-              key={feature.name}
-              className="p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              {/* Render the icon dynamically */}
-              {React.createElement(feature.icon, {
-                className: 'w-12 h-12 text-[#00d4ff] mb-4',
-              })}
-              <h3 className="text-xl font-semibold mb-2">{feature.name}</h3>
-              <p className="text-gray-600">{feature.description}</p>
-            </div>
-          ))}
+    return (
+      <div className="py-24 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16">Our Services</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature) => (
+              <div
+                key={feature.name}
+                className="relative p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
+                {/* Coming Soon Badge for creLaundry and creDelivery */}
+                {(feature.name === "creLaundry" || feature.name === "creDelivery") && (
+                  <span className="absolute top-2 right-2 bg-yellow-400 text-white text-xs font-bold px-2 py-1 rounded-full">
+                    Coming Soon
+                  </span>
+                )}
+  
+                {/* Render the icon dynamically */}
+                {React.createElement(feature.icon, {
+                  className: "w-12 h-12 text-[#00d4ff] mb-4",
+                })}
+                <h3 className="text-xl font-semibold mb-2">{feature.name}</h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
+  

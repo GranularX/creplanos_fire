@@ -65,7 +65,7 @@ export function Hero() {
             <Zap className="w-5 h-5 mr-2" />
             Use a Service
           </Button>
-          <Button variant="secondary">Get Started</Button>
+          <Button variant="secondary">Learn a skill</Button>
         </div>
 
         {/* Stats Section */}
