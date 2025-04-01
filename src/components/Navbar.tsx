@@ -31,11 +31,11 @@ export function Navbar() {
             <>
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center">
-                <NavLink to="/provider-profile" icon={User}>Provider</NavLink>
+                <NavLink to="/provider-profile" icon={User}>Task Dashboard</NavLink>
                 <NavLink to="/user-profile" icon={User}>User</NavLink>
                 <NavLink to="/wallet" icon={Wallet}>Wallet</NavLink>
                 <NavLink to="/api" icon={Code}>API</NavLink> {/* Updated Icon for API */}
-                  <NavLink to="/learn" icon={Book}>Learn</NavLink> {/* Updated Icon for API */}
+                  <NavLink to="/learn" icon={Book}>LearnsyAI</NavLink> {/* Updated Icon for API */}
                 <div className="ml-4 flex items-center gap-3">
                   <Link
                     to="/signin"
