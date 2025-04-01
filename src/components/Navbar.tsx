@@ -31,12 +31,12 @@ export function Navbar() {
             <>
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center">
-               <NavLink to="https://taskboard.creplanos.com" icon={User}>Taskboard</NavLink>
+               <NavLink to="https://taskboard.creplanos.com" icon={User} target="_blank">Taskboard</NavLink>
 
 {/*                 <NavLink to="/user-profile" icon={User}>User</NavLink> */}
                 <NavLink to="/wallet" icon={Wallet}>Wallet</NavLink>
                 <NavLink to="/api" icon={Code}>API</NavLink> {/* Updated Icon for API */}
-                  <NavLink to="https://learnsy.creplanos.com" icon={Book}>LearnsyAI</NavLink> {/* Updated Icon for API */}
+                  <NavLink to="https://learnsy.creplanos.com" icon={Book} target="_blank">LearnsyAI</NavLink> {/* Updated Icon for API */}
                 <div className="ml-4 flex items-center gap-3">
                   <Link
                     to="/signin"
