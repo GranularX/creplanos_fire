@@ -32,7 +32,7 @@ export function Navbar() {
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center">
                 <NavLink to="/provider-profile" icon={User}>Task Dashboard</NavLink>
-                <NavLink to="/user-profile" icon={User}>User</NavLink>
+{/*                 <NavLink to="/user-profile" icon={User}>User</NavLink> */}
                 <NavLink to="/wallet" icon={Wallet}>Wallet</NavLink>
                 <NavLink to="/api" icon={Code}>API</NavLink> {/* Updated Icon for API */}
                   <NavLink to="/learn" icon={Book}>LearnsyAI</NavLink> {/* Updated Icon for API */}
