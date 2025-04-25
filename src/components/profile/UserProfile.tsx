@@ -6,7 +6,7 @@ import { Button } from '../Button';
 export function UserProfile() {
   return (
     <div className="relative min-h-screen bg-gradient-to-r from-[#8E2DE2] via-[#4A00E0] to-[#F77062] pt-20">
-      {/* Dark overlay */}
+      {/* Dark overlay! */}
       <div className="absolute inset-0 bg-black/50"></div>
 
       <div className="relative container mx-auto px-4 py-8">
