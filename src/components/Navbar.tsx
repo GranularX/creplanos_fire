@@ -31,12 +31,12 @@ export function Navbar() {
             <>
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center">
-               <NavLink to="https://taskboard.creplanos.com" icon={User} target="_blank">Taskboard</NavLink>
+               <NavLink to="/taskboard" icon={User}>Taskboard</NavLink>
 
 {/*                 <NavLink to="/user-profile" icon={User}>User</NavLink> */}
                 <NavLink to="/wallet" icon={Wallet}>Wallet</NavLink>
-                <NavLink to="/api" icon={Code}>API</NavLink> {/* Updated Icon for API */}
-                  <NavLink to="https://learnsy.creplanos.com" icon={Book} target="_blank">LearnsyAI</NavLink> {/* Updated Icon for API */}
+                {/* <NavLink to="/api" icon={Code}>API</NavLink> Updated Icon for API */}
+                  {/* <NavLink to="https://learnsy.creplanos.com" icon={Book} target="_blank">LearnsyAI</NavLink> Updated Icon for API */}
                 <div className="ml-4 flex items-center gap-3">
                   <Link
                     to="/signin"
@@ -68,11 +68,11 @@ export function Navbar() {
         {/* Mobile Navigation */}
         {!isAuthPage && isMenuOpen && (
           <div className="md:hidden py-4 space-y-2 border-t border-white/10">
-     <NavLink to="https://taskboard.creplanos.com" icon={User}>Taskboard</NavLink>
-            <NavLink to="/user-profile" icon={User}>User</NavLink>
+     <NavLink to="/taskboard" icon={User}>Taskboard</NavLink>
+            {/* <NavLink to="/user-profile" icon={User}>User</NavLink> */}
             <NavLink to="/wallet" icon={Wallet}>Wallet</NavLink>
-            <NavLink to="/api" icon={Code}>API</NavLink> {/* Updated Icon for API */}
-               <NavLink to="https://learnsy.creplanos.com" icon={Book}>LearnsyAI</NavLink> {/* Updated Icon for API */}
+            {/* <NavLink to="/api" icon={Code}>API</NavLink> Updated Icon for API */}
+               {/* <NavLink to="https://learnsy.creplanos.com" icon={Book}>LearnsyAI</NavLink> Updated Icon for API */}
             <div className="pt-2 flex flex-col gap-2">
               <Link
                 to="/signin"
