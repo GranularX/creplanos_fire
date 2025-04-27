@@ -16,7 +16,10 @@ import { AuthProvider } from './contexts/AuthContext';
 import PrivateRoute from './components/PrivateRoute';
 // import ExternalRedirect from './components/ExternalRedirect';
 import Taskboard from "./components/Taskboard";
+import PricingPage from './pages/PricingPage';
 import NotFound from './components/NotFound';
+import ShowcasePage from './pages/ShowcasePage';
+import TestimonialSection from './components/Testimonial';
 
 function App() {
   return (
@@ -28,12 +31,15 @@ function App() {
             <>
               <Hero />
               <Features />
+              <TestimonialSection/>
               {/* <ChatInterface /> Added ChatInterface component */}
             </>
           } />
           <Route path="signin" element={<SignIn />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="*" element={<NotFound/>} />
+          <Route path='showcase' element={<ShowcasePage/>}/>
+          <Route path="pricing" element={<PricingPage/>}/>
           {/* <Route path='/j' element={<Taskboard />} /> */}
           <Route element={<PrivateRoute />} >
             {/* <Route path="provider-profile" element={<ServiceProviderProfile />} /> */}
