@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Zap, Menu, X, User, Wallet, Code ,Book} from 'lucide-react'; // Imported Code for API
+import { Zap, Menu, X, User, Wallet, Code ,Book, Currency} from 'lucide-react'; // Imported Code for API
 
 export function Navbar() {
   const location = useLocation();
@@ -33,7 +33,7 @@ export function Navbar() {
               <div className="hidden md:flex items-center">
                <NavLink to="/taskboard" icon={User}>Taskboard</NavLink>
 
-{/*                 <NavLink to="/user-profile" icon={User}>User</NavLink> */}
+                <NavLink to="/pricing" icon={Currency}>Pricing</NavLink>
                 <NavLink to="/wallet" icon={Wallet}>Wallet</NavLink>
                 {/* <NavLink to="/api" icon={Code}>API</NavLink> Updated Icon for API */}
                   {/* <NavLink to="https://learnsy.creplanos.com" icon={Book} target="_blank">LearnsyAI</NavLink> Updated Icon for API */}
@@ -69,6 +69,7 @@ export function Navbar() {
         {!isAuthPage && isMenuOpen && (
           <div className="md:hidden py-4 space-y-2 border-t border-white/10">
      <NavLink to="/taskboard" icon={User}>Taskboard</NavLink>
+     <NavLink to="/pricing" icon={Currency}>Pricing</NavLink>
             {/* <NavLink to="/user-profile" icon={User}>User</NavLink> */}
             <NavLink to="/wallet" icon={Wallet}>Wallet</NavLink>
             {/* <NavLink to="/api" icon={Code}>API</NavLink> Updated Icon for API */}
