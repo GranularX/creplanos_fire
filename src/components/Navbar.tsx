@@ -34,7 +34,7 @@ export function Navbar() {
                <NavLink to="/taskboard" icon={User}>Taskboard</NavLink>
 
                 <NavLink to="/pricing" icon={Currency}>Pricing</NavLink>
-                <NavLink to="/wallet" icon={Wallet}>Wallet</NavLink>
+{/*                 <NavLink to="/wallet" icon={Wallet}>Wallet</NavLink> */}
                 {/* <NavLink to="/api" icon={Code}>API</NavLink> Updated Icon for API */}
                   {/* <NavLink to="https://learnsy.creplanos.com" icon={Book} target="_blank">LearnsyAI</NavLink> Updated Icon for API */}
                 <div className="ml-4 flex items-center gap-3">
@@ -71,7 +71,7 @@ export function Navbar() {
      <NavLink to="/taskboard" icon={User}>Taskboard</NavLink>
      <NavLink to="/pricing" icon={Currency}>Pricing</NavLink>
             {/* <NavLink to="/user-profile" icon={User}>User</NavLink> */}
-            <NavLink to="/wallet" icon={Wallet}>Wallet</NavLink>
+{/*             <NavLink to="/wallet" icon={Wallet}>Wallet</NavLink> */}
             {/* <NavLink to="/api" icon={Code}>API</NavLink> Updated Icon for API */}
                {/* <NavLink to="https://learnsy.creplanos.com" icon={Book}>LearnsyAI</NavLink> Updated Icon for API */}
             <div className="pt-2 flex flex-col gap-2">
