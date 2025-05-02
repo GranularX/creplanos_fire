@@ -161,6 +161,81 @@ const PricingCalculator = () => {
           </div>
         </div>
 
+        {/* Payment Instructions Section - ADDED */}
+        <div className="max-w-4xl mx-auto bg-purple-900/60 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-purple-600/30 mb-16">
+          <h2 className="text-2xl font-bold text-white text-center mb-8">Payment Instructions</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Bank Details */}
+            <div className="bg-purple-800/40 rounded-xl p-6 border border-purple-600/30">
+              <div className="flex items-center mb-4">
+                <svg className="w-8 h-8 text-blue-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                </svg>
+                <h3 className="text-xl font-medium text-blue-300">Bank Transfer Details</h3>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="bg-purple-900/60 rounded-lg p-4">
+                  <div className="flex justify-between mb-2">
+                    <span className="text-purple-200">Bank Name:</span>
+                    <span className="text-white font-medium">Wema Bank</span>
+                  </div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-purple-200">Account Name:</span>
+                    <span className="text-white font-medium">Emmanuel Jason Charles</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-purple-200">Account Number:</span>
+                    <span className="text-white font-medium">0408137366</span>
+                  </div>
+                </div>
+                
+                <div className="text-purple-200 text-sm">
+                  <p>Please include your name and order reference in the transfer description to help us identify your payment.</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* WhatsApp Verification */}
+            <div className="bg-purple-800/40 rounded-xl p-6 border border-purple-600/30">
+              <div className="flex items-center mb-4">
+                <svg className="w-8 h-8 text-green-400 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.174-.3-.019-.465.13-.615.136-.135.301-.345.451-.523.146-.181.194-.301.297-.496.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.195 2.105 3.195 5.1 4.485.714.3 1.27.48 1.704.629.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345m-5.446 7.443h-.016c-1.77 0-3.524-.48-5.055-1.38l-.36-.214-3.75.975 1.005-3.645-.239-.375c-.99-1.576-1.516-3.391-1.516-5.26 0-5.445 4.455-9.885 9.942-9.885 2.654 0 5.145 1.035 7.021 2.91 1.875 1.859 2.909 4.35 2.909 6.99-.004 5.444-4.46 9.885-9.935 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.495-8.411"/>
+                </svg>
+                <h3 className="text-xl font-medium text-green-400">Payment Verification</h3>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="bg-purple-900/60 rounded-lg p-4">
+                  <p className="text-purple-200 mb-3">After making payment, please send proof of payment to:</p>
+                  <div className="flex items-center justify-center space-x-2 bg-green-900/30 p-3 rounded-lg border border-green-500/30">
+                    <svg className="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.174-.3-.019-.465.13-.615.136-.135.301-.345.451-.523.146-.181.194-.301.297-.496.1-.21.049-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.195 2.105 3.195 5.1 4.485.714.3 1.27.48 1.704.629.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345z"/>
+                    </svg>
+                    <span className="text-white font-medium text-lg">+2349037450565</span>
+                  </div>
+                </div>
+                
+                <div className="text-purple-200 text-sm">
+                  <p>Please include a screenshot of your payment receipt along with your name and email address. Your Crebytes will be credited to your account immediately after verification.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-6 bg-blue-900/30 rounded-lg p-4 border border-blue-600/30">
+            <div className="flex items-start">
+              <svg className="w-6 h-6 text-blue-400 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9a1 1 0 00-1-1z" clipRule="evenodd" />
+              </svg>
+              <p className="text-purple-200 text-sm">
+                For security reasons, we recommend using your registered email or username as the payment reference. This helps us quickly identify and process your transaction. If you experience any issues with your payment, please contact our support team immediately.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Benefits/Features Section */}
         <div className="max-w-4xl mx-auto mb-16">
           <h2 className="text-3xl font-bold text-white text-center mb-10">What Can You Do With Crebytes?</h2>
@@ -220,16 +295,16 @@ const PricingCalculator = () => {
                 a: "No, once purchased, your Crebytes never expire. You can use them whenever you need services on our platform."
               },
               {
-                q: "Can I get a refund for unused Crebytes?",
-                a: "We don't offer refunds for purchased Crebytes, but they never expire, so you can use them whenever you need our services."
+                q: "How do I make a payment?",
+                a: "You can make a direct bank transfer to our Wema Bank account and send the proof of payment via WhatsApp for quick verification. Your Crebytes will be credited immediately after confirmation."
               },
               {
                 q: "Are there discounts for bulk purchases?",
                 a: "Yes, for purchases over $100, please contact our sales team to discuss volume discounts and custom packages tailored to your needs."
               },
               {
-                q: "How do I know how many Crebytes I need?",
-                a: "The number of Crebytes required varies by service. Each service listing on our platform shows the required Crebytes, helping you budget accordingly."
+                q: "How long does payment verification take?",
+                a: "Payment verification typically takes 5-15 minutes during business hours. Once your payment is verified, your Crebytes will be instantly credited to your account."
               }
             ].map((item, i) => (
               <div key={i} className="bg-purple-800/40 backdrop-blur-sm rounded-xl p-6 border border-purple-600/30">
