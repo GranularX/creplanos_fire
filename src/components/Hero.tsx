@@ -61,11 +61,11 @@ export function Hero() {
         {/* <Search /> */}
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
-          <Button variant="primary" onClick={() => navigate('/book')}>
+          <Button variant="primary" onClick={() => navigate('/taskboard')}>
             <Zap className="w-5 h-5 mr-2" />
             Use a Service
           </Button>
-          <Button variant="secondary">Learn a skill</Button>
+          <Button variant="secondary" onClick={() => navigate('/learn')}>Learn a skill</Button>
         </div>
 
         {/* Stats Section */}
@@ -73,13 +73,13 @@ export function Hero() {
           <div className="grid grid-cols-3 gap-4 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md shadow-lg">
             <div className="text-center">
               <div className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-                1M+
+                100+
               </div>
               <div className="text-xs sm:text-sm text-white/70">Active Users</div>
             </div>
             <div className="text-center">
               <div className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-                50K+
+                20+
               </div>
               <div className="text-xs sm:text-sm text-white/70">Services</div>
             </div>
