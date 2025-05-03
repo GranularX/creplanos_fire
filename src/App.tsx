@@ -5,7 +5,7 @@ import { Footer } from './components/Footer';
 import { SignIn } from './components/auth/SignIn';
 import { SignUp } from './components/auth/SignUp';
 // import { API } from "./components/api/API";
-// import {Learn} from "./components/learn/Learn"
+import {Learn} from "./components/learn/Learn"
 import { Layout } from './components/Layout';
 // import { ServiceProviderProfile } from './components/profile/ServiceProviderProfile';
 // import { UserProfile } from './components/profile/UserProfile';
@@ -42,10 +42,10 @@ function App() {
           <Route path="pricing" element={<PricingPage/>}/>
           {/* <Route path='/j' element={<Taskboard />} /> */}
           <Route element={<PrivateRoute />} >
+            <Route path='learn' element={<Learn/>}/>
             {/* <Route path="provider-profile" element={<ServiceProviderProfile />} /> */}
             {/* <Route path="user-profile" element={<UserProfile />} /> */}
             {/* <Route path='api' element={<API/>}/> */}
-            {/* <Route path='learn' element={<Learn/>}/> */}
             <Route path="/wallet" element={<WalletPage />} />
             {/* <Route path='chat' element={<ChatInterface/>}/> */}
             <Route path='book' element={<ServiceBookingForm/>}/>
