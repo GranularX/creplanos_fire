@@ -41,8 +41,8 @@ function App() {
           <Route path='showcase' element={<ShowcasePage/>}/>
           <Route path="pricing" element={<PricingPage/>}/>
           {/* <Route path='/j' element={<Taskboard />} /> */}
-          <Route element={<PrivateRoute />} >
             <Route path='learn' element={<Learn/>}/>
+          <Route element={<PrivateRoute />} >
             {/* <Route path="provider-profile" element={<ServiceProviderProfile />} /> */}
             {/* <Route path="user-profile" element={<UserProfile />} /> */}
             {/* <Route path='api' element={<API/>}/> */}
